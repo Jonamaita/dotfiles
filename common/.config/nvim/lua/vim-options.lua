@@ -1,52 +1,53 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=4")
-vim.cmd("set softtabstop=4")
-vim.cmd("set shiftwidth=4")
-vim.cmd("set number")
-vim.cmd("set autoindent")
-vim.cmd("set smarttab")
-vim.cmd("set clipboard=unnamedplus")
+----------------------------------
+-- 🌟 Neovim General Settings
+----------------------------------
 
--- Bindings --
--- Move windows
+-- Tabs and indentation
+vim.opt.expandtab = true        -- Use spaces instead of tabs
+vim.opt.tabstop = 4             -- Number of spaces tabs count for
+vim.opt.softtabstop = 4         -- Number of spaces when pressing <Tab> in insert mode
+vim.opt.shiftwidth = 4          -- Indent amount for << and >>
+vim.opt.autoindent = true
+vim.opt.smarttab = true
+
+-- Interface and UI
+vim.opt.number = true           -- Show line numbers
+vim.opt.cursorline = true       -- Highlight current line
+vim.opt.laststatus = 2          -- Always show statusline
+vim.opt.showmode = false        -- Hide "-- INSERT --" mode since it's in statusline
+vim.opt.list = true             -- Show whitespace characters
+vim.opt.listchars = {
+  trail = '•',                  -- Character for trailing spaces
+}
+vim.opt.guicursor = {
+  "r-ci-ve:ver25-Cursor/lCursor", -- Thin vertical cursor in insert/replace
+}
+
+-- Clipboard
+vim.opt.clipboard = "unnamedplus" -- Use system clipboard
+
+-- Behavior
+vim.opt.joinspaces = false      -- Don't add two spaces when joining lines
+vim.keymap.set('n', 'Q', '<nop>') -- Disable Ex mode
+
+----------------------------------
+-- ⌨️ Keymaps
+----------------------------------
+
+-- Window navigation
 vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 
 -- Insert mode
-vim.keymap.set('i', '<C-e>', '<End>') -- Go to end line in insert mode
---vim.keymap.set('i', '<C-l>', '<Esc>', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-e>', '<End>') -- Move to end of line in insert mode
 
--- Command Mode
-vim.keymap.set('c', '<C-a>', '<Home>')
-vim.keymap.set('c', '<C-e>', '<End>')
+-- Command-line mode
+vim.keymap.set('c', '<C-a>', '<Home>') -- Start of command
+vim.keymap.set('c', '<C-e>', '<End>')  -- End of command
 
--- get rid of ex mode
-vim.keymap.set('n', 'Q', '<nop>')
-
----
-
--- Show the relative path
-vim.opt.laststatus = 2
-
--- Configurar Shift + Tab para desindentar
-vim.api.nvim_set_keymap('i', '<S-Tab>', '<C-d>', { noremap = true, silent = true }) -- en modo inserción
-vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true, silent = true })   -- en modo visual
-vim.api.nvim_set_keymap('n', '<S-Tab>', '<<', { noremap = true, silent = true })   -- en modo normal
-
-vim.opt.cursorline = true -- -- highlight cursor line
-vim.o.joinspaces = false -- don't join spaces with J
-vim.o.showmode = false -- Don't show "INSERT" below. It's in the statusline
-vim.opt.list = true -- show whitespace
-
-vim.opt.listchars = {
-    trail = '•', -- BULLET (U+2022, UTF-8: E2 80 A2)
-}
-
----- Cursor
-vim.opt.guicursor = {
---  "n-v-c:block-Cursor/lCursor",
-  "r-ci-ve:ver25-Cursor/lCursor",
---  "r-cr-o:hor20"
-}
+-- Indentation in visual mode
+vim.keymap.set('i', '<S-Tab>', '<C-d>', { noremap = true, silent = true }) -- insert mode
+vim.keymap.set('v', '<S-Tab>', '<gv', { noremap = true, silent = true })   -- visual mode
+vim.keymap.set('n', '<S-Tab>', '<<', { noremap = true, silent = true })   -- normal mode

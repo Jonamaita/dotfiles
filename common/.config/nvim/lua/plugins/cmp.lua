@@ -5,14 +5,8 @@ return {
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-cmdline",
---    "hrsh7th/cmp-git",
     "L3MON4D3/LuaSnip",
---    "saadparwaiz1/cmp_luasnip",
---    "windwp/nvim-autopairs",
   },
---  event = "BufRead",
---  main = "config.cmp",
---  config = true,
   config = function ()
     local cmp = require('cmp')
     local luasnip = require('luasnip')
@@ -25,9 +19,7 @@ return {
     end
 
     local select_next = cmp.mapping(function(fallback)
-        if luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-        elseif cmp.visible() then
+        if cmp.visible() then
             if #cmp.get_entries() == 1 then
                 cmp.confirm({ select = true })
             else
@@ -43,8 +35,6 @@ return {
     local select_previous = cmp.mapping(function(fallback)
         if cmp.visible() then
             cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
         else
           fallback()
         end
@@ -79,8 +69,8 @@ return {
         ['<Tab>'] = select_next,
         ['<S-Tab>'] = select_previous,
 
-        --['<down>'] = select_next,
-        --['<up>'] = select_previous,
+        -- ['<down>'] = select_next,
+        -- ['<up>'] = select_previous,
 
         ['<C-y>'] = accept_regardless,
         ['<CR>'] = accept_if_selected,
