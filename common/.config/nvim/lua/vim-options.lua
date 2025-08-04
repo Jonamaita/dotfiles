@@ -18,7 +18,8 @@ vim.opt.laststatus = 2          -- Always show statusline
 vim.opt.showmode = false        -- Hide "-- INSERT --" mode since it's in statusline
 vim.opt.list = true             -- Show whitespace characters
 vim.opt.listchars = {
-  trail = '•',                  -- Character for trailing spaces
+    trail = '•',                -- Character for trailing spaces
+    tab = '  ',                 -- This hides the tab character using two spaces.
 }
 vim.opt.guicursor = {
   "r-ci-ve:ver25-Cursor/lCursor", -- Thin vertical cursor in insert/replace
