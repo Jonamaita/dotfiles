@@ -9,6 +9,7 @@ vim.opt.softtabstop = 4         -- Number of spaces when pressing <Tab> in inser
 vim.opt.shiftwidth = 4          -- Indent amount for << and >>
 vim.opt.autoindent = true
 vim.opt.smarttab = true
+vim.opt.smartcase = true
 
 -- Interface and UI
 vim.opt.number = true           -- Show line numbers
