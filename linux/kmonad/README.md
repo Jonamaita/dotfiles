@@ -6,7 +6,7 @@ I bind my keyboard to avoid using the arrow keys (up, down, right, and left). In
 
 In short, if someday I don't remember what this folder is for (because this process isn't automated yet), here's what I need to do:
 
-1.  **Install KMonad**. For Ubuntu (for now), you have to download the binary package and move it to `/usr/bin/`.
+1.  **Install KMonad**. For Ubuntu (for now), you have to download the binary [https://github.com/kmonad/kmonad/releases](package) and move it to `/usr/bin/`.
 2.  **Create** a new folder named `kmonad` in your `/etc/` directory.
 3.  **Copy** `./drop_alt.kbd` to `/etc/kmonad/drop_alt.kbd`.
 4.  **Change** `/etc/kmonad/config.kbd` to reflect what my current keyboard's `/dev/input` file is. I wish it was easier to identify; here are some guidelines:
