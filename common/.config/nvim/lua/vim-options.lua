@@ -24,6 +24,7 @@ vim.opt.listchars = {
 vim.opt.guicursor = {
   "r-ci-ve:ver25-Cursor/lCursor", -- Thin vertical cursor in insert/replace
 }
+vim.opt.fillchars:append({ eob = " " }) -- Delete '~' on the end of file
 
 -- Clipboard
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard
