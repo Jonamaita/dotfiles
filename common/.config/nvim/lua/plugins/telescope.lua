@@ -1,7 +1,7 @@
 return {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.8',
-    dependencies = { 
+    version = '0.1.x',
+    dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-ui-select.nvim'
     },
@@ -28,9 +28,9 @@ return {
         }
       )
       vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-      vim.keymap.set('n', '<leader>a', builtin.live_grep, {noremap = true, silent = true})
+      vim.keymap.set('n', '<leader>a', builtin.live_grep, {noremap = true, silent = true}) -- for linux install ripgrep 'sudo aptitude install ripgrep'
       vim.keymap.set('n', '<leader>b', builtin.buffers)
       telescope.load_extension('ui-select')
-      
+
     end
 }
