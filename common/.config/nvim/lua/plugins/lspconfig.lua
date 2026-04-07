@@ -6,7 +6,7 @@ return {
     },
     config = function()
         require("neodev").setup()
-        local lspconfig = require("lspconfig")
+        local lspconfig = vim.lsp.config
         local on_attach = function(_, bufnr)
             local only_buffer = { buffer = bufnr }
 
@@ -25,7 +25,7 @@ return {
         end
 
         -- Lua
-        lspconfig.lua_ls.setup({
+        lspconfig("lua_ls", {
             on_attach = on_attach,
             settings = {
                 Lua = {
@@ -40,7 +40,7 @@ return {
         })
 
         -- Go
-        lspconfig.gopls.setup({
+        lspconfig("gopls", {
             on_attach = on_attach,
         })
 
@@ -63,7 +63,8 @@ return {
             python_path = "/usr/bin/python3" -- Fallback to python global 
         end
 
-        lspconfig.jedi_language_server.setup(
+        lspconfig(
+            "jedi_language_server",
             {
                 on_attach = on_attach,
                 -- pythonpath config
@@ -76,13 +77,17 @@ return {
         )
 
         -- bash
-        lspconfig.bashls.setup({
-            on_attach = on_attach,
+        lspconfig(
+            "bashls",
+            {
+                on_attach = on_attach,
         })
 
         -- tsserver
-        lspconfig.ts_ls.setup({
-            on_attach = on_attach,
+        lspconfig(
+            "ts_ls",
+            {
+                on_attach = on_attach,
         })
 
     end
