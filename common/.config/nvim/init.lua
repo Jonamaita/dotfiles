@@ -18,3 +18,46 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 require("vim-options")
+
+----------------------------------
+-- 🚀 Treesitter Auto-Activation
+----------------------------------
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = {
+        'bash',
+        'c',
+        'cpp',
+        'css',
+        'dockerfile',
+        'fish',
+        'gitignore',
+        'go',
+        'gomod',
+        'graphql',
+        'html',
+        'javascript',
+        'json',
+        'kdl',
+        'lua',
+        'make',
+        'markdown',
+        'meson',
+        'ninja',
+        'php',
+        'python',
+        'rasi',
+        'ruby',
+        'rust',
+        'scss',
+        'sql',
+        'sxhkdrc',
+        'toml',
+        'tsx',
+        'twig',
+        'typescript',
+        'vue',
+        'yaml',
+        'comment',
+    },
+    callback = function() vim.treesitter.start() end,
+})
